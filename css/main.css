@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body{
+    padding: 0;
+    margin: 0;
+    background: #000000;
+    color: #0dcaf0;
+}
+html,h1,h2,h3,h4,h5,h6,a{
+    font-family: "Raleway";
+}
+.navbar{
+    background: transparent;
+}
+.nav-link , .navbar-brand{
+    color: #ffffff;
+    cursor: pointer;
+}
+.text-center{
+    color:#0facbe;
+}
+.nav-link{
+    margin-right: 1em !important;
+}
+.nav-link:hover{
+    background: #ffffff;
+    color: #3b3225;
+
+}
+.navbar-collapse{
+    justify-content: flex-end;
+}
+.navbar-toggler{
+    background:#fff !important;
+}
+
+
+.header{
+    position: relative;
+    background-image: url('../imagine/depositphotos_82158222-stock-photo-athletic-man-and-woman-with.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.overlay{
+    position: relative;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+.description{
+    position: absolute;
+    top: 30%;
+    margin: auto;
+    padding: 2em;
+
+}
+.description h1{
+    color: #0facbe;
+}
+.description p{
+    color: #daf5f1;
+    font-size: 20px;
+    width: 50%;
+    line-height: 1.5;
+}
+.description button{
+    border:1px  solid #0facbe;
+    background:#0facbe;
+    color:#fff;
+}
+.about{
+    margin: 4em 0;
+    padding: 1em;
+    position: relative;
+}
+.about h1{
+    color:#0facbe;
+    margin: 2em;
+}
+.about img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%
+}
+.about span{
+    display: block;
+    color: #acbcbb;
+    position: absolute;
+    left: 115px;
+}
+.about .desc{
+    padding: 2em;
+    border-left:4px solid #0facbe;
+}
+.about .desc h3{
+    color: #0facbe;
+}
+.about .desc p{
+    line-height:2;
+    color: #d2f3f0;
+}
+
+.schedule{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.schedule {
+    color:#0facbe;
+    margin: 2em;
+}
+.schedule table tr{
+    color: #0dcaf0;
+}
+
+.price{
+    margin: 4em 0;
+    position: relative;
+
+
+}
+.price h1{
+    color:#0facbe;
+    margin: 2em;
+
+}
+
+.price .card{
+    background-color: #000000
+}
+
+.price .card img{
+    width: 100%;
+    height: 100%;
+
+}
+
+.price .card-title{
+    color: #12bfcd;
+
+
+}
+.price .card-body{
+    padding: 1em;
+    background-color: #000000;
+}
+.price .card-footer{
+    background-color: #000000;
+}
+
+.price .card-text{
+    color: #ffffff;
+}
+
+.team{
+    margin: 4em 0;
+    position: relative;
+
+}
+.team h1{
+    color:#0facbe;
+    margin: 2em;
+}
+.team .item{
+    position: relative;
+    overflow: hidden;
+}
+.team .des{
+    background: #10828C;
+    color: #fff;
+    text-align: center;
+    border-top-right-radius: 93%;
+    transition:.3s ease-in-out;
+    position: absolute;
+    width: 88%;
+    bottom: 24px;
+
+
+}
+.team .item:hover .des{
+    height: 100%;
+    background:#f973007d;
+    position: absolute;
+    width: 89%;
+    padding: 5em;
+    top: 0;
+    border-top-right-radius: 0;
+}
+.contact-form{
+    margin: 6em 0;
+    position: relative;
+}
+
+.contact-form h1{
+    padding:2em 1px;
+    color: #0facbe;
+}
+.contact-form .right{
+    max-width: 600px;
+}
+.contact-form .right .btn-secondary{
+    background:  #0facbe;
+    color: #fff;
+    border:0;
+}
+.contact-form .right .form-control::placeholder{
+    color: #0facbe;
+    font-size: 16px;
+}
