@@ -1,11 +1,8 @@
 <?php
-    $host = "localhost";
-    $user = "postgres";
-    $pass = "dbrfnbif23";
-    $db = "SportClub";
-    $con = pg_connect("host=$host dbname=$db user=$user password=$pass") or die ("Could not connect to Server\n");
+require_once("dao/ScheduleDao.php");
 
-    if(!$con){
+    $scheduleDao=new ScheduleDao();
+    if(false){
         echo "sadasd\n";
     }
     else{
@@ -60,7 +57,7 @@ echo <<<HTML
         <div class="container">
             <div class="description ">
                 <h1>
-                    Построй СВОЕ ТЕЛО <br> Измени СВОЮ ЖИЗНЬ
+                    123Построй СВОЕ ТЕЛО <br> Измени СВОЮ ЖИЗНЬ
                     <p>
                         Мы предоставляем лучшие возможности и квалифицированных тренеров для самостоятельных тренировок!</p>
                     </br>
@@ -121,7 +118,7 @@ echo <<<HTML
 
 HTML;
 
-    $query="SELECT fio, date_time_start, nazvanie_train FROM train train inner join trainer trainer ON trainer.idtrainer=train.idtrainer ORDER BY date_time_start DESC";
+    /*$query="SELECT fio, date_time_start, nazvanie_train FROM train train inner join trainer trainer ON trainer.idtrainer=train.idtrainer ORDER BY date_time_start DESC";
     $result = pg_query($con, $query);
         if($result) {
             $rows = pg_num_rows($result); // количество полученных строк
@@ -135,7 +132,24 @@ HTML;
                 echo "</tr>";
             }
             echo "</table>";
+        }*/
+        $list= $scheduleDao->getScheduleList();
+        echo "<table><tr><th>Тренер</th><th>Когда</th><th>Тренировка</th></tr>";
+        for($i=0;$i<count($list); $i++){
+            $s=$list[$i];
+            echo "<tr>";
+            echo "<td>";
+            echo $s->fio;
+            echo "</td>";
+            echo "<td>";
+            echo $s->dateTimeStart;
+            echo "</td>";
+            echo "<td>";
+            echo $s->nazvanieTrain;
+            echo "</td>";
+            echo "</tr>";
         }
+        echo "</table>";
 
 echo <<<HTML
             
@@ -284,5 +298,5 @@ echo <<<HTML
 </html>
 HTML;
         }
-    pg_close($con);
+    //pg_close($con);
 ?>

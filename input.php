@@ -26,11 +26,7 @@
 
 	}
 	pg_close($con);
-	//<form class="box" action="select.php" method="post">
-//  <h1>Vrachi</h1>
- // <input type="text" name="username" placeholder="Username">
- // <input type="Submit" Value="Login">
-//</form>
+
 
 
 ?>
