@@ -101,18 +101,8 @@ html,h1,h2,h3,h4,h5,h6,a{
     line-height:2;
     color: #d2f3f0;
 }
-
-.schedule{
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-}
-.schedule {
-    color:#0facbe;
-    margin: 2em;
-}
-.schedule table tr{
-    color: #0dcaf0;
+.schedule . h1{
+    text-align: center;
 }
 
 .price{
