@@ -57,7 +57,7 @@ echo <<<HTML
         <div class="container">
             <div class="description ">
                 <h1>
-                    123Построй СВОЕ ТЕЛО <br> Измени СВОЮ ЖИЗНЬ
+                    Построй СВОЕ ТЕЛО <br> Измени СВОЮ ЖИЗНЬ
                     <p>
                         Мы предоставляем лучшие возможности и квалифицированных тренеров для самостоятельных тренировок!</p>
                     </br>
@@ -89,7 +89,7 @@ echo <<<HTML
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <img src="imagine/0_IMG_20190930_190407.jpg" class="img-fluid">
-                    <span class="text-justify">by Tolkacheva Viktoria</span>
+                    <span class="text-justify">by Tolkacheva Viktoria & Daniil Bislkiy</span>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 desc">
 
