@@ -1,8 +1,9 @@
 <?php
+
 class Conf
 {
     const host = "localhost";
     const user = "postgres";
-    const pass = "dbrfnbif23";
+    const pass = "0";
     const db = "SportClub";
 }
