@@ -1,12 +1,7 @@
 <?php
-
+require_once ("conf.php");
     session_start();
-
-    $host = "localhost";
-	$user = "postgres";
-	$pass = "0";
-	$db = "SportClub";
-	$con = pg_connect("host=$host dbname=$db user=$user password=$pass") or die ("Could not connect to Server\n");
+    $con = pg_connect("host=".Conf::host." dbname=".Conf::db." user=".Conf::user." password=".Conf::pass) or die ("Could not connect to Server\n");
 
 	if(!$con){
 		echo "sadasd\n";
@@ -15,13 +10,12 @@
     {
     $login = $_POST['login'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $password_confirm = $_POST['password_confirm'];
+    $password = md5($_POST['password']);
+    $password_confirm = md5($_POST['password_confirm']);
     }
 
     if ($password === $password_confirm) {
 
-        //$password = md5($password);
 
         $query = "INSERT INTO users (login, email, password) VALUES ('$login', '$email', '$password');";
 		$result = pg_query($con, $query);

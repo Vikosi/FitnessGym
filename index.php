@@ -1,24 +1,22 @@
 <?php
 require_once("dao/ScheduleDao.php");
-
+session_start();
     $scheduleDao=new ScheduleDao();
     if(false){
         echo "sadasd\n";
     }
     else{
-echo <<<HTML
+        echo <<<HTML
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
 <head>
     <title>Fitness Gym</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
 </head>
 <body>
     <div class="container">
@@ -28,10 +26,8 @@ echo <<<HTML
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-4">
-
                 <li class="nav-item">
                     <a class="nav-link" data-value="about" href="#">О нас</a>
                 </li>
@@ -49,7 +45,6 @@ echo <<<HTML
                     <a class="nav-link " data-value="contact" href="#">Обратная связь</a>
                 </li>
             </ul>
-
         </div>
     </nav>
     <header class="header ">
@@ -61,17 +56,13 @@ echo <<<HTML
                     <p>
                         Мы предоставляем лучшие возможности и квалифицированных тренеров для самостоятельных тренировок!</p>
                     </br>
-                    <button class="btn btn-outline-secondary btn-lg">Узнать подробнее</button>
-
+                    <a class="btn btn-outline-secondary btn-lg" href="avtorization.php">Войти в профиль</a>
                     <div id="time-node"></div>
-
                     <script>
                         var timeNode = document.getElementById('time-node');
-
                         function getCurrentLocaleString() {
                             return new Date().toLocaleString();
                         }
-
                         setInterval(
                             () => timeNode.innerHTML = getCurrentLocaleString(),
                             1000
@@ -82,7 +73,6 @@ echo <<<HTML
         </div>
     </div>
     </header>
-
     <div class="about" id="about">
         <div class="container">
             <h1 class="text-center">О нас</h1>
@@ -92,7 +82,6 @@ echo <<<HTML
                     <span class="text-justify">by Tolkacheva Viktoria & Daniil Bislkiy</span>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 desc">
-
                     <h3>Fitness Gym</h3>
                     <p>
                         Команда сертифицированных тренеров. Лучшие тренажеры. Групповые и индивидуальные тренировки.
@@ -106,7 +95,6 @@ echo <<<HTML
             </div>
         </div>
     </div>
-
     <div class="schedule" id="schedule">
             
         <h1 class="text-center">Расписание</h1>
@@ -115,43 +103,28 @@ echo <<<HTML
             table { color: #0facbe; text-align: center;}
             </style>
            
-
 HTML;
 
-    /*$query="SELECT fio, date_time_start, nazvanie_train FROM train train inner join trainer trainer ON trainer.idtrainer=train.idtrainer ORDER BY date_time_start DESC";
-    $result = pg_query($con, $query);
-        if($result) {
-            $rows = pg_num_rows($result); // количество полученных строк
-
+        if(isset($_SESSION["user"])) {
+            $list = $scheduleDao->getScheduleList();
             echo "<table><tr><th>Тренер</th><th>Когда</th><th>Тренировка</th></tr>";
-
-            for ($i = 0; $i < $rows; ++$i) {
-                $row = pg_fetch_row($result);
+            for ($i = 0; $i < count($list); $i++) {
+                $s = $list[$i];
                 echo "<tr>";
-                for ($j = 0; $j < 3; ++$j) echo "<td>$row[$j]</td>";
+                echo "<td>";
+                echo $s->fio;
+                echo "</td>";
+                echo "<td>";
+                echo $s->dateTimeStart;
+                echo "</td>";
+                echo "<td>";
+                echo $s->nazvanieTrain;
+                echo "</td>";
                 echo "</tr>";
             }
             echo "</table>";
-        }*/
-        $list= $scheduleDao->getScheduleList();
-        echo "<table><tr><th>Тренер</th><th>Когда</th><th>Тренировка</th></tr>";
-        for($i=0;$i<count($list); $i++){
-            $s=$list[$i];
-            echo "<tr>";
-            echo "<td>";
-            echo $s->fio;
-            echo "</td>";
-            echo "<td>";
-            echo $s->dateTimeStart;
-            echo "</td>";
-            echo "<td>";
-            echo $s->nazvanieTrain;
-            echo "</td>";
-            echo "</tr>";
         }
-        echo "</table>";
-
-echo <<<HTML
+        echo <<<HTML
             
             <a href="insert.html" class="insert-link" id="Insert">Добавить тренировку (для администратора)</a> 
               
@@ -165,11 +138,9 @@ echo <<<HTML
                         <div class="card-img">
                             <img src="imagine/kenvil_11.jpg" class="img-fluid">
                         </div>
-
                         <div class="card-body">
                             <h4 class="card-title">Безлимит утро+вечер</h4>
                             <p class="card-text">
-
                                 Тренируйтесь с утра пораньше (8:30) перед работой или учебой и возвращайтесь вечером (17:30).
                             </p>
                         </div>
@@ -183,11 +154,9 @@ echo <<<HTML
                         <div class="card-img">
                             <img src="imagine/MSH_RetroFitnessLakeHowell_20180523-23.jpg" class="img-fluid">
                         </div>
-
                         <div class="card-body">
                             <h4 class="card-title">Безлимит день</h4>
                             <p class="card-text">
-
                                 Для любителей хорошенько потренироваться: посетите все групповые
                                 и позанимайтесь на всех тренажерах с 12:00 до 18:00.
                             </p>
@@ -202,11 +171,9 @@ echo <<<HTML
                         <div class="card-img">
                             <img src="imagine/Retro-Fitness-Kingston-Samples-2.jpg" class="img-fluid">
                         </div>
-
                         <div class="card-body">
                             <h4 class="card-title">Льготные абонементы</h4>
                             <p class="card-text">
-
                                 Студенты, школьники, пенсионеры - все сюда!
                             </p>
                         </div>
@@ -218,7 +185,6 @@ echo <<<HTML
             </div>
         </div>
     </div>
-
     <div class="team" id="team">
         <div class="container">
             <h1 class="text-center">Команда тренеров</h1>
@@ -254,7 +220,6 @@ echo <<<HTML
             </div>
         </div>
     </div>
-
     <div class="contact-form" id="contact">
         <div class="container">
             <form>
@@ -271,16 +236,11 @@ echo <<<HTML
                         </div>
                         <div class="form-group">
 				   	 <textarea class="form-control form-control-lg" >
-
 				   	 </textarea>
                         </div>
                         <span class="btn btn-secondary btn-block" id="Send"  >Отправить</span>
-
                         <div id="result">
-
                         </div>
-
-
                     </div>
                 </div>
             </form>
@@ -291,12 +251,8 @@ echo <<<HTML
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src='js/main.js'></script>
-
-
-
 </body>
 </html>
 HTML;
-        }
-    //pg_close($con);
+    }
 ?>

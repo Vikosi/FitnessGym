@@ -32,6 +32,7 @@ if (isset($_SESSION['user'])) {
             }
             unset($_SESSION['message']);
         ?>
+        <a href="index.php">Вернуться на главную</a>
     </form>
 
 </body>

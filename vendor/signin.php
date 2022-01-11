@@ -1,17 +1,11 @@
 <?php
-
+require_once ("conf.php");
     session_start();
-
-    $host = "localhost";
-	$user = "postgres";
-	$pass = "0";
-	$db = "SportClub";
-	$con = pg_connect("host=$host dbname=$db user=$user password=$pass") or die ("Could not connect to Server\n");
+    $con = pg_connect("host=".Conf::host." dbname=".Conf::db." user=".Conf::user." password=".Conf::pass) or die ("Could not connect to Server\n");
 
 
     $login = $_POST['login'];
-    //$password = md5($_POST['password']);
-    $password = ($_POST['password']);
+    $password = md5($_POST['password']);
 
     $check_user = pg_query($con, "SELECT * FROM users WHERE login = '$login' AND password = '$password'");
     if (pg_num_rows($check_user) > 0) {
@@ -24,7 +18,7 @@
             "email" => $user['email']
         ];
 
-        header('Location: ../profile.php');
+        header('Location: ../index.php');
 
     } else {
         $_SESSION['message'] = 'Не верный логин или пароль';
