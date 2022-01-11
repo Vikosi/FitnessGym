@@ -1,5 +1,4 @@
 <?php
-require_once "ScheduleMapper.php";
 
 class ScheduleMapper
 {

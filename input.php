@@ -18,7 +18,7 @@
 
 
 		//echo $type_train;
-		$query = "INSERT INTO train (idtrain, idtrainer, idcond_visit, idtype_train, nazvanie_train, date_time_start) VALUES ($train, $trainer, $cond_visit, $type_train,'$nazvanie','$dts');";
+		$query = "INSERT INTO train (idtrain, idtrainer, idcond_visit, idtype_train, nazvanie_train, date_time_start) VALUES ('$train', '$trainer', '$cond_visit', '$type_train','$nazvanie','$dts');";
 		$result = pg_query($con, $query);
 		header("Location: index.php");
 		//echo pg_num_rows($result);

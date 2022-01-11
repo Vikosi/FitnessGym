@@ -1,5 +1,6 @@
 <?php
 require_once("dao/ScheduleDao.php");
+require_once("dao/UserDao.php");
 session_start();
     $scheduleDao=new ScheduleDao();
     if(false){
@@ -55,8 +56,24 @@ session_start();
                     Построй СВОЕ ТЕЛО <br> Измени СВОЮ ЖИЗНЬ
                     <p>
                         Мы предоставляем лучшие возможности и квалифицированных тренеров для самостоятельных тренировок!</p>
-                    </br>
-                    <a class="btn btn-outline-secondary btn-lg" href="avtorization.php">Войти в профиль</a>
+
+
+HTML;
+
+                    if(isset($_SESSION["user"])) 
+                    {
+                        echo <<< HTML
+                        <a class="btn btn-outline-secondary btn-lg" href="avtorization.php">Войти в личный кабинет</a>
+                        HTML;
+                    }
+                        else 
+                        {
+                        echo <<< HTML
+                        <a class="btn btn-outline-secondary btn-lg" href="avtorization.php">Войти в профиль</a>
+                        HTML;
+                        }
+                        
+                    echo <<< HTML
                     <div id="time-node"></div>
                     <script>
                         var timeNode = document.getElementById('time-node');
@@ -96,16 +113,26 @@ session_start();
         </div>
     </div>
     <div class="schedule" id="schedule">
-            
-        <h1 class="text-center">Расписание</h1>
-            
-            <style>
-            table { color: #0facbe; text-align: center;}
-            </style>
            
 HTML;
 
         if(isset($_SESSION["user"])) {
+            $UserDao = New UserDao();
+            $User = $UserDao -> GetUserById($_SESSION["user"]['id']);
+            if ($User[0] -> role == 1) {
+                echo <<< HTML
+                <a href="insert.html" class="insert-link" id="Insert">Добавить тренировку</a> 
+                HTML;
+            }
+            echo <<< HTML
+            <h1 class="text-center">Расписание</h1>
+            
+            <style>
+            table { color: #0facbe; text-align: center;}
+            </style>
+
+            HTML;
+
             $list = $scheduleDao->getScheduleList();
             echo "<table><tr><th>Тренер</th><th>Когда</th><th>Тренировка</th></tr>";
             for ($i = 0; $i < count($list); $i++) {
@@ -125,8 +152,6 @@ HTML;
             echo "</table>";
         }
         echo <<<HTML
-            
-            <a href="insert.html" class="insert-link" id="Insert">Добавить тренировку (для администратора)</a> 
               
         
     <div class="price" id="price">

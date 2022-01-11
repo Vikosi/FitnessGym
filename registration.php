@@ -3,7 +3,6 @@
     if (isset($_SESSION['user'])) {
         header('Location: profile.php');
     }
-    /**/
 ?>
 
 <!doctype html>
@@ -17,7 +16,7 @@
 
     <!-- Форма регистрации -->
 
-    <form action="vendor/signup.php" method="post">
+    <form action=>
 
         <label>Логин</label>
         <input type="text" name="login" placeholder="Введите свой логин">
@@ -31,20 +30,16 @@
         <label>Подтверждение пароля</label>
         <input type="password" name="password_confirm" placeholder="Подтвердите пароль">
 
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit" class="register-btn">Зарегистрироваться</button>
         <p>
             У вас уже есть аккаунт? - <a href="/avtorization.php">Авторизируйтесь</a>!
         </p>
-        
-        <?php
-           if (isset ($_SESSION['message']))
-           {
-                echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
-           }
-           unset ($_SESSION['message']);
-        ?>
+        <p class="msg none"></p>
         <a href="index.php">Вернуться на главную</a>
     </form>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/new.js"></script>
 
 </body>
 </html>

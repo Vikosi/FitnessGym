@@ -62,3 +62,11 @@ button {
 .logout {
     color: #b7625c;
 }
+
+.error {
+    border-bottom: 5px solid #ff4332;
+}
+
+.none {
+    display: none;
+}

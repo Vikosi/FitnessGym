@@ -19,6 +19,7 @@ if (!$_SESSION['user']) {
     <form>
         <h2 style="margin: 10px 0;"><?= $_SESSION['user']['login'] ?></h2>
         <a href="#"><?= $_SESSION['user']['email'] ?></a>
+        <a href="index.php">Вернуться на главную</a>
         <a href="vendor/logout.php" class="logout">Выход</a>
     </form>
 
