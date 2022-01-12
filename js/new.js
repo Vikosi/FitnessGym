@@ -19,7 +19,7 @@ $('.login-btn').click(function (e) {
         success (data) {
 
             if (data.status) {
-                document.location.href = '/index.php';
+                document.location.href = '/profile.php';
             } else {
 
                 if (data.type === 1) {
@@ -67,7 +67,7 @@ $('.register-btn').click(function (e) {
         success (data) {
 
             if (data.status) {
-                document.location.href = '/index.php';
+                document.location.href = '/avtorization.php';
             } else {
 
                 if (data.type === 1) {
