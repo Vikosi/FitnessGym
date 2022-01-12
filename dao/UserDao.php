@@ -1,6 +1,6 @@
 <?php
-    require_once ("dataBaseMapper/UserMapper.php");
-    require_once ("bean/User.php");
+    require_once ("../dataBaseMapper/UserMapper.php");
+    require_once ("../bean/User.php");
     require_once ("BaseDao.php");
 
     class UserDao extends dao {

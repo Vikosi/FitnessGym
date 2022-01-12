@@ -9,7 +9,7 @@ $('.login-btn').click(function (e) {
         password = $('input[name="password"]').val();
 
     $.ajax({
-        url: 'vendor/signin.php',
+        url: '/vendor/signin.php',
         type: 'POST',
         dataType: 'json',
         data: {
@@ -19,7 +19,7 @@ $('.login-btn').click(function (e) {
         success (data) {
 
             if (data.status) {
-                document.location.href = '/index.php';
+                document.location.href = '../view/index.php';
             } else {
 
                 if (data.type === 1) {
@@ -57,7 +57,7 @@ $('.register-btn').click(function (e) {
 
 
     $.ajax({
-        url: 'vendor/signup.php',
+        url: '/vendor/signup.php',
         type: 'POST',
         dataType: 'json',
         processData: false,
@@ -67,7 +67,7 @@ $('.register-btn').click(function (e) {
         success (data) {
 
             if (data.status) {
-                document.location.href = '/index.php';
+                document.location.href = '../view/index.php';
             } else {
 
                 if (data.type === 1) {

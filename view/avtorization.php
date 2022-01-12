@@ -24,14 +24,14 @@ if (isset($_SESSION['user'])) {
         <input type="password" name="password" placeholder="Введите пароль">
         <button type="submit" class="login-btn">Войти</button>
         <p>
-            У вас нет аккаунта? - <a href="/registration.php">Зарегистрируйтесь</a>!
+            У вас нет аккаунта? - <a href="registration.php">Зарегистрируйтесь</a>!
         </p>
         <p class="msg none"></p>
         <a href="index.php">Вернуться на главную</a>
     </form>
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/new.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/new.js"></script>
 
 </body>
 </html>

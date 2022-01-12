@@ -1,6 +1,6 @@
 <?php
-require_once("dao/ScheduleDao.php");
-require_once("dao/UserDao.php");
+require_once("../dao/ScheduleDao.php");
+require_once("../dao/UserDao.php");
 session_start();
     $scheduleDao=new ScheduleDao();
     if(false){
@@ -16,8 +16,8 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
 </head>
 <body>
     <div class="container">
@@ -63,7 +63,7 @@ HTML;
                     if(isset($_SESSION["user"])) 
                     {
                         echo <<< HTML
-                        <a class="btn btn-outline-secondary btn-lg" href="avtorization.php">Войти в личный кабинет</a>
+                        <a class="btn btn-outline-secondary btn-lg" href="avtorization.php">Личный кабинет</a>
                         HTML;
                     }
                         else 
@@ -95,7 +95,7 @@ HTML;
             <h1 class="text-center">О нас</h1>
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <img src="imagine/0_IMG_20190930_190407.jpg" class="img-fluid">
+                    <img src="../imagine/0_IMG_20190930_190407.jpg" class="img-fluid">
                     <span class="text-justify">by Tolkacheva Viktoria & Daniil Bislkiy</span>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 desc">
@@ -161,7 +161,7 @@ HTML;
                 <div class="col-md-4 col-lg-4 col-sm-12">
                     <div class="card">
                         <div class="card-img">
-                            <img src="imagine/kenvil_11.jpg" class="img-fluid">
+                            <img src="../imagine/kenvil_11.jpg" class="img-fluid">
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Безлимит утро+вечер</h4>
@@ -177,7 +177,7 @@ HTML;
                 <div class="col-md-4 col-lg-4 col-sm-12">
                     <div class="card">
                         <div class="card-img">
-                            <img src="imagine/MSH_RetroFitnessLakeHowell_20180523-23.jpg" class="img-fluid">
+                            <img src="../imagine/MSH_RetroFitnessLakeHowell_20180523-23.jpg" class="img-fluid">
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Безлимит день</h4>
@@ -194,7 +194,7 @@ HTML;
                 <div class="col-md-4 col-lg-4 col-sm-12">
                     <div class="card">
                         <div class="card-img">
-                            <img src="imagine/Retro-Fitness-Kingston-Samples-2.jpg" class="img-fluid">
+                            <img src="../imagine/Retro-Fitness-Kingston-Samples-2.jpg" class="img-fluid">
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Льготные абонементы</h4>
@@ -215,28 +215,28 @@ HTML;
             <h1 class="text-center">Команда тренеров</h1>
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 item">
-                    <img src="imagine/b15df6a26ec0ac2a0bbd7e3df270cc60.jpg" class="img-fluid" alt="team">
+                    <img src="../imagine/b15df6a26ec0ac2a0bbd7e3df270cc60.jpg" class="img-fluid" alt="team">
                     <div class="des">
                         Андрей
                     </div>
                     <span class="text-muted">Тренер по кроссфиту</span>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 item">
-                    <img src="imagine/m9vofx-16244916df0b4707a1d34c12465ffdbc.jpg" class="img-fluid" alt="team">
+                    <img src="../imagine/m9vofx-16244916df0b4707a1d34c12465ffdbc.jpg" class="img-fluid" alt="team">
                     <div class="des">
                         Катя
                     </div>
                     <span class="text-muted">Йога+пилатес</span>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 item">
-                    <img src="imagine/5af5fad88b2fa1719d2a98cf_5af5fb04365e7.jpg" class="img-fluid" alt="team">
+                    <img src="../imagine/5af5fad88b2fa1719d2a98cf_5af5fb04365e7.jpg" class="img-fluid" alt="team">
                     <div class="des">
                         Марат
                     </div>
                     <span class="text-muted">Силовые тренировки</span>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 item">
-                    <img src="imagine/dfnvije436t45tfdb.jpg" class="img-fluid" alt="team">
+                    <img src="../imagine/dfnvije436t45tfdb.jpg" class="img-fluid" alt="team">
                     <div class="des">
                         Алиса
                     </div>
@@ -273,9 +273,9 @@ HTML;
     </div>
     </div>
     
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src='js/main.js'></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='../js/main.js'></script>
 </body>
 </html>
 HTML;

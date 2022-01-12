@@ -1,6 +1,6 @@
 <?php
-require_once ("dataBaseMapper/ScheduleMapper.php");
-require_once ("bean/Schedule.php");
+require_once ("../dataBaseMapper/ScheduleMapper.php");
+require_once ("../bean/Schedule.php");
 require_once ("BaseDao.php");
 class ScheduleDao extends dao 
 {
