@@ -83,6 +83,7 @@ require_once ("../conf.php");
             "status" => true,
             "message" => "Регистрация прошла успешно!",
         ];
+
         echo json_encode($response);
     
 

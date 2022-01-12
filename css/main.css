@@ -34,7 +34,11 @@ html,h1,h2,h3,h4,h5,h6,a{
     background:#fff !important;
 }
 
-
+a {
+    color: #00ffff;
+    font-weight: bold;
+    text-decoration: none;
+}
 .header{
     position: relative;
     background-image: url('../imagine/depositphotos_82158222-stock-photo-athletic-man-and-woman-with.jpg');

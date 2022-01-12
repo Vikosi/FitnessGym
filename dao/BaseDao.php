@@ -13,7 +13,7 @@ require_once ("../conf.php");
         public function __destruct()
         {
     
-            pg_close($this->con);
+            //pg_close($this->con);
         }
     }
     

