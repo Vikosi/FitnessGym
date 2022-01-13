@@ -4,6 +4,6 @@ class Conf
 {
     const host = "localhost";
     const user = "postgres";
-    const pass = "0";
+    const pass = "dbrfnbif23";
     const db = "SportClub";
 }
