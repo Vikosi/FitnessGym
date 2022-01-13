@@ -4,5 +4,4 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !^favicon\.ico
 RewriteCond %{SCRIPT_FILENAME} !-f
 
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteRule ^(.+)$ core/route.php
+RewriteRule ^$ core/route.php

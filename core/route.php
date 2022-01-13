@@ -1,6 +1,6 @@
 <?php
 
-    $controller_name = 'controller_main';
+    $controller_name = 'controller_index';
     $action_name = 'action_index';
     $url = $_SERVER['REQUEST_URI'];
 
