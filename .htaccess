@@ -1,7 +1,8 @@
 RewriteEngine On
 
 
+RewriteRule ^$ http://localhost/index [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !^favicon\.ico
 RewriteCond %{SCRIPT_FILENAME} !-f
 
-RewriteRule ^$ core/route.php
+RewriteRule ^(.+)$ core/route.php
