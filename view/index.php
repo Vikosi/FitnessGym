@@ -1,13 +1,3 @@
-<?php
-require_once("../dao/ScheduleDao.php");
-require_once("../dao/UserDao.php");
-session_start();
-    $scheduleDao=new ScheduleDao();
-    if(false){
-        echo "sadasd\n";
-    }
-    else{
-        echo <<<HTML
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -57,23 +47,21 @@ session_start();
                     <p>
                         Мы предоставляем лучшие возможности и квалифицированных тренеров для самостоятельных тренировок!</p>
 
-
-HTML;
-
-                    if(isset($_SESSION["user"])) 
+<?php                        
+                        if(isset($_SESSION["user"])) 
                     {
                         echo <<< HTML
-                        <a class="btn btn-outline-secondary btn-lg" href="avtorization.php">Личный кабинет</a>
+                        <a class="btn btn-outline-secondary btn-lg" href="/avtorization">Личный кабинет</a>
                         HTML;
                     }
                         else 
                         {
                         echo <<< HTML
-                        <a class="btn btn-outline-secondary btn-lg" href="avtorization.php">Войти в профиль</a>
+                        <a class="btn btn-outline-secondary btn-lg" href="/avtorization">Войти в профиль</a>
                         HTML;
                         }
-                        
-                    echo <<< HTML
+?>
+
                     <div id="time-node"></div>
                     <script>
                         var timeNode = document.getElementById('time-node');
@@ -113,47 +101,48 @@ HTML;
         </div>
     </div>
     <div class="schedule" id="schedule">
+ 
+    <?php
+    if(isset($_SESSION["user"])) {
            
-HTML;
+           if ($data['user'][0] -> role == 1) {
+               echo <<< HTML
+               <a href="/insert" class="insert-link" id="Insert">Добавить тренировку</a> 
+               HTML;
+           }
+           echo <<< HTML
+           <h1 class="text-center">Расписание</h1>
+           
+           <style>
+           table { color: #0facbe; text-align: center;}
+           </style>
 
-        if(isset($_SESSION["user"])) {
-            $UserDao = New UserDao();
-            $User = $UserDao -> GetUserById($_SESSION["user"]['id']);
-            if ($User[0] -> role == 1) {
-                echo <<< HTML
-                <a href="insert.html" class="insert-link" id="Insert">Добавить тренировку</a> 
-                HTML;
-            }
-            echo <<< HTML
-            <h1 class="text-center">Расписание</h1>
-            
-            <style>
-            table { color: #0facbe; text-align: center;}
-            </style>
+           HTML;
 
-            HTML;
-
-            $list = $scheduleDao->getScheduleList();
-            echo "<table><tr><th>Тренер</th><th>Когда</th><th>Тренировка</th></tr>";
-            for ($i = 0; $i < count($list); $i++) {
-                $s = $list[$i];
-                echo "<tr>";
-                echo "<td>";
-                echo $s->fio;
-                echo "</td>";
-                echo "<td>";
-                echo $s->dateTimeStart;
-                echo "</td>";
-                echo "<td>";
-                echo $s->nazvanieTrain;
-                echo "</td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-        }
-        echo <<<HTML
-              
+           
+           echo "<table><tr><th>Тренер</th><th>Когда</th><th>Тренировка</th></tr>";
+           for ($i = 0; $i < count($data['list']); $i++) {
+               $s = $data['list'][$i];
+               echo "<tr>";
+               echo "<td>";
+               echo $s->fio;
+               echo "</td>";
+               echo "<td>";
+               echo $s->dateTimeStart;
+               echo "</td>";
+               echo "<td>";
+               echo $s->nazvanieTrain;
+               echo "</td>";
+               echo "</tr>";
+           }
+           echo "</table>";
+       }
+     ?>         
         
+
+
+
+
     <div class="price" id="price">
         <div class="container">
             <h1 class="text-center">Абонементы</h1>
@@ -278,6 +267,3 @@ HTML;
     <script type="text/javascript" src='../js/main.js'></script>
 </body>
 </html>
-HTML;
-    }
-?>

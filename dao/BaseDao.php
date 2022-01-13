@@ -10,10 +10,5 @@ require_once ("../conf.php");
             $this->con = pg_connect("host=".Conf::host." dbname=".Conf::db." user=".Conf::user." password=".Conf::pass) or die ("Could not connect to Server\n");
     
         }
-        public function __destruct()
-        {
-    
-            //pg_close($this->con);
-        }
     }
     

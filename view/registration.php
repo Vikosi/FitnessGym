@@ -1,7 +1,6 @@
 <?php
-     session_start();
     if (isset($_SESSION['user'])) {
-        header('Location: profile.php');
+        header('Location: profile');
     }
 ?>
 
@@ -32,10 +31,10 @@
 
         <button type="submit" class="register-btn">Зарегистрироваться</button>
         <p>
-            У вас уже есть аккаунт? - <a href="avtorization.php">Авторизируйтесь</a>!
+            У вас уже есть аккаунт? - <a href="avtorization">Авторизируйтесь</a>!
         </p>
         <p class="msg none"></p>
-        <a href="index.php">Вернуться на главную</a>
+        <a href="index">Вернуться на главную</a>
     </form>
 
     <script src="../js/jquery-3.4.1.min.js"></script>

@@ -1,8 +1,7 @@
 <?php
-session_start();
 
 if (isset($_SESSION['user'])) {
-    header('Location: profile.php');
+    header('Location: profile');
 }
 ?>
 
@@ -24,10 +23,10 @@ if (isset($_SESSION['user'])) {
         <input type="password" name="password" placeholder="Введите пароль">
         <button type="submit" class="login-btn">Войти</button>
         <p>
-            У вас нет аккаунта? - <a href="registration.php">Зарегистрируйтесь</a>!
+            У вас нет аккаунта? - <a href="registration">Зарегистрируйтесь</a>!
         </p>
         <p class="msg none"></p>
-        <a href="index.php">Вернуться на главную</a>
+        <a href="index">Вернуться на главную</a>
     </form>
 
     <script src="../js/jquery-3.4.1.min.js"></script>

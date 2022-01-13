@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<form class="box" action="../models/input.php" method="post">
+<form class="box" action="/insert" method="post">
     <div class="row centered">
         <p>
 
