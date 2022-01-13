@@ -9,6 +9,11 @@ Class  model_register extends model{
     {
     $con = pg_connect("host=".Conf::host." dbname=".Conf::db." user=".Conf::user." password=".Conf::pass) or die ("Could not connect to Server\n");
 
+    $login = pg_escape_string($login);
+    $email = pg_escape_string($email);
+    $password = pg_escape_string($password);
+    $password_confirm = pg_escape_string($password_confirm);
+
     $check_login = pg_query($con, "SELECT * FROM users WHERE login = '$login'");
     if (pg_num_rows($check_login) > 0) {
         $response = [

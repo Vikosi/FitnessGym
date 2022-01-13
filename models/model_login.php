@@ -9,6 +9,9 @@ Class  model_login extends model{
     {
         $con = pg_connect("host=".Conf::host." dbname=".Conf::db." user=".Conf::user." password=".Conf::pass) or die ("Could not connect to Server\n");
 
+        $login = pg_escape_string($login);
+        $password = pg_escape_string($password);
+
     $check_user = pg_query($con, "SELECT * FROM users WHERE login = '$login' AND password = '$password'");
     if (pg_num_rows($check_user) > 0) 
     {

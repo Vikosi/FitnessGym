@@ -7,6 +7,8 @@
         
         function GetUserById($id)
         {
+            $id =  pg_escape_string($id);
+
             $query="SELECT id, userrole, login FROM users WHERE id='$id'";
             $result = pg_query($this->con, $query);
             $sm=new UserMapper();
