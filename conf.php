@@ -3,7 +3,7 @@
 class Conf
 {
     const host = "localhost";
-    const user = "postgres";
-    const pass = "dbrfnbif23";
+    const user = "";
+    const pass = "";
     const db = "SportClub";
 }
